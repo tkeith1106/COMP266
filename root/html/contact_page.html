@@ -4,49 +4,80 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Contact Me!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i, 700">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/c0019fddb0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="my_info">
-        <h1>Send me a message</h1>
-        <h4>
-            Please feel free to send me a message if you have any questions, if you would like to get in touch about a
-            potential job opportunity/contract work, or just to chat!
-        </h4>
-    </div>
-    <div class="contact_form">
-        <form action="/my-handling-form-page" method="post">
-            <li>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
-            </li>
-            <li>
-                <label for="reason">Reason for Contact</label>
-                <select name="contact_reason" id="reason">
-                    <option value="">--Please choose an option--</option>
-                    <option value="chat">Just want to chat</option>
-                    <option value="work">Would like to discuss a job opportunity</option>
-                    <option value="rfq">Would like to get a quote for contract work</option>
-                </select>
-            </li>
-            <li>
-                <label for="phone">Phone Number:</label>
-                <input type="phone" id="phone" name="phone">
-            </li>
-            <li>
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email">
-            </li>
-            <li>
-                <label for="msg">Message:</label>
-                <textarea id="msg" name="message"></textarea>
-            </li>
-        </form>
-    </div>
+    <div class="container">
+        <!--Web Page Header-->
+        <div class="header">
+            <div class="nav">
+                <ul class="nav_list">
+                    <li class="nav_listheader">
+                        Contact Page
+                    </li>
+                    <li class="nav_listitem">
+                        <!-- icon from https://fontawesome.com/icons/bars?s=solid -->
+                        <i class="fa-solid fa-bars fa-2x"></i>
+                        <ul class="nav_listitemdrop">
+                            <li><a href="index.html">Home Page</a></li>
+                            <li><a href="resume_main.html">Resume</a></li>
+                            <li><a href="portfolio_main.html">Portfolio</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="contact_page.html">Contact Page</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+                <p class="contact_form_text">Please fill out the information below, if you would like to send me a message!</p>
+                <p class="contact_form_text">* = Required Field</p>
+                <form action="mailto:contact@yourdomain.com?subject=Website Contact Form Request" method="POST"
+                      enctype="multipart/form-data">
+                    <div class="contact_form_list">
+                        <ul>
+                            <li class="contact_form_listitem">
+                                <label for="name">Name*:</label>
+                                <input type="text" id="name" name="name" required >
+                            </li>
+                            <li class="contact_form_listitem">
+                                <label for="reason">Reason for Contact</label>
+                                <select name="contact_reason" id="reason">
+                                    <option value="">--Please choose an option--</option>
+                                    <option value="chat">Just want to chat</option>
+                                    <option value="work">Would like to discuss a job opportunity</option>
+                                    <option value="rfq">Would like to get a quote for contract work</option>
+                                </select>
+                            </li>
+                            <li class="contact_form_listitem">
+                                <label for="phone">Phone Number*:</label>
+                                <input type="text" id="phone" name="phone" required >
+                            </li>
+                            <li class="contact_form_listitem">
+                                <label for="email">E-mail*:</label>
+                                <input type="text" id="email" name="email" required >
+                            </li>
+                            <li class="contact_form_listitem">
+                                <label for="msg">Type Message Here:</label>
+                                <textarea rows="1" cols="1" id="msg" name="message"></textarea>
+                            </li>
+                        </ul>
+                        <button>Submit</button>
+                    </div>
+                </form>
+        </div>
 
-    <div class="modified_by">
-        <h6>Last Modified: July 28, 2022    |   Last Modified By: T. Keith</h6>
+        <!--Webpage Footer-->
+        <div class="footer">
+            <ul class="footer_list">
+                <li>Last Modified: July 24, 2022</li>
+                <li>Last Modified By: T. Keith</li>
+                <li><a href="sitemap.html">Site Map</a></li>
+            </ul>
+        </div>
     </div>
-
 </body>
 </html>

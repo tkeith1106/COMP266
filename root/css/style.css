@@ -1,0 +1,223 @@
+/*color palette chosen from https://colorhunt.co/palette/f0ebe3e4dccf7d9d9c576f72*/
+
+/*WEB PAGE CONTAINER & LAYOUT*/
+
+body {
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.header {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    margin-bottom: 6rem;
+    order: 1;
+}
+
+.main {
+    padding: 7rem 15rem 7rem;
+    /*margin-top: 6rem;*/
+    order: 2;
+
+}
+
+.footer {
+    width: 100vw;
+    flex: auto;
+    box-shadow: 0 0 5px #576F72;
+    background-color: #7D9D9C;
+    position: fixed;
+    bottom: 0;
+    color: #F0EBE3;
+    font-size: .75rem;
+    font-weight: bold;
+    order: 3;
+}
+
+/*NAV BAR*/
+/*help for all below was from Dropdown Navigation Menu with Flexbox <https://youtu.be/nhlF3wRPkug>*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    background-color: rgba(240, 235, 227, 0.5);
+}
+
+.nav {
+    position: fixed;
+    width: 100vw;
+    box-shadow: 0 0 15px #576F72;
+    background-color: #7D9D9C;
+}
+
+.nav_list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 2rem;
+}
+
+.nav_listheader {
+    font-weight: 900;
+    font-size: 2.5rem;
+    list-style: none;
+    margin-right: auto;
+    cursor: pointer;
+    color: #F0EBE3;
+}
+
+.nav_listitem {
+    list-style: none;
+    font-weight: bold;
+    position: relative;
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    color: #F0EBE3;
+
+}
+
+.nav_listitem:hover ul, :focus ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav_listitem a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav_listitemdrop {
+    position: absolute;
+    top: 4rem;
+    left: -9rem;
+    box-shadow: 0 0 5px #F0EBE3;
+    background-color: whitesmoke;
+    border-radius: 0.5rem;
+    width: 12rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out;
+}
+
+.nav_listitemdrop li {
+    list-style: none;
+    color: #7D9D9C;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 250ms ease-in-out;
+}
+
+.nav_listitemdrop li:hover, :focus {
+    background-color: #E4DCCF;
+}
+
+/*FOOTER*/
+.footer_list {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 2rem;
+}
+
+.footer_list ul, .footer_list li {
+    list-style: none;
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+}
+.footer_list li a {
+    color: #F0EBE3;
+}
+
+.footer_list li a:hover {
+    text-shadow: 0 0 2px white;
+    color: #576F72;
+}
+
+/*Site Map Main*/
+.site_map_portfolio_li{
+    list-style: none;
+    padding: 0.5rem 4rem;
+}
+
+.site_map_li{
+    list-style: none;
+}
+
+/*Contact Page*/
+ form {
+     width: 50vw;
+     display: inline-block;
+     gap: 1.5rem;
+     padding: 2rem;
+     flex-direction: column;
+}
+
+.contact_form_text p{
+    list-style: none;
+    font-weight: lighter;
+    font-size: large;
+    color: #576F72;
+}
+
+.contact_form_listitem {
+    list-style: none;
+    font-weight: bold;
+    position: relative;
+    padding: 1rem 0.75rem;
+    cursor: pointer;
+    color: #576F72;
+}
+
+.contact_form_listitem label {
+    text-align: left;
+    display: flex;
+}
+
+.contact_form_listitem input {
+    width: 45vw;
+    height: 2rem;
+    min-height: 2rem;
+    cursor: pointer;
+}
+
+.contact_form_listitem input:required {
+    border: solid 0.5px lightcoral;
+}
+
+
+.contact_form_listitem textarea {
+    width: 45vw;
+    height: 10vh;
+}
+
+.contact_form_list button {
+    width: 45vw;
+    height: 3rem;
+    font-weight: bolder;
+    font-size: large;
+    color: #F0EBE3;
+    background-color: #576F72;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+}
+
+.contact_form_list button:hover, :focus {
+    color: #576F72;
+    background-color: #F0EBE3;
+    box-shadow: 0 0 10px #576F72;
+}
