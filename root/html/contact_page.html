@@ -6,7 +6,6 @@
     <title>Contact Me!</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i, 700">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="https://kit.fontawesome.com/c0019fddb0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,8 +18,10 @@
                         Contact Page
                     </li>
                     <li class="nav_listitem">
-                        <!-- icon from https://fontawesome.com/icons/bars?s=solid -->
-                        <i class="fa-solid fa-bars fa-2x"></i>
+                        <i class="icon">
+                            <img src="../images/map_layers.png"
+                                 height="30px">
+                        </i>
                         <ul class="nav_listitemdrop">
                             <li><a href="index.html">Home Page</a></li>
                             <li><a href="resume_main.html">Resume</a></li>
@@ -33,41 +34,43 @@
             </div>
         </div>
         <div class="main">
-                <p class="contact_form_text">Please fill out the information below, if you would like to send me a message!</p>
-                <p class="contact_form_text">* = Required Field</p>
-                <form action="mailto:contact@yourdomain.com?subject=Website Contact Form Request" method="POST"
-                      enctype="multipart/form-data">
-                    <div class="contact_form_list">
-                        <ul>
-                            <li class="contact_form_listitem">
-                                <label for="name">Name*:</label>
-                                <input type="text" id="name" name="name" required >
-                            </li>
-                            <li class="contact_form_listitem">
-                                <label for="reason">Reason for Contact</label>
-                                <select name="contact_reason" id="reason">
-                                    <option value="">--Please choose an option--</option>
-                                    <option value="chat">Just want to chat</option>
-                                    <option value="work">Would like to discuss a job opportunity</option>
-                                    <option value="rfq">Would like to get a quote for contract work</option>
-                                </select>
-                            </li>
-                            <li class="contact_form_listitem">
-                                <label for="phone">Phone Number*:</label>
-                                <input type="text" id="phone" name="phone" required >
-                            </li>
-                            <li class="contact_form_listitem">
-                                <label for="email">E-mail*:</label>
-                                <input type="text" id="email" name="email" required >
-                            </li>
-                            <li class="contact_form_listitem">
-                                <label for="msg">Type Message Here:</label>
-                                <textarea rows="1" cols="1" id="msg" name="message"></textarea>
-                            </li>
-                        </ul>
-                        <button>Submit</button>
-                    </div>
-                </form>
+                <div class="main_form">
+                    <form action="mailto:contact@yourdomain.com?subject=Website Contact Form Request" method="POST"
+                          enctype="multipart/form-data">
+                        <div class="contact_form_list">
+                            <p class="contact_form_text">Please fill out the information below, if you would like to send me a message!</p>
+                            <p class="contact_form_text">* = Required Field</p>
+                            <ul>
+                                <li class="contact_form_listitem">
+                                    <label for="name">* Name:</label>
+                                    <input type="text" id="name" name="name" required >
+                                </li>
+                                <li class="contact_form_listitem">
+                                    <label for="reason">Reason for Contact</label>
+                                    <select name="contact_reason" id="reason">
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="chat">Just want to chat</option>
+                                        <option value="work">Would like to discuss a job opportunity</option>
+                                        <option value="rfq">Would like to get a quote for contract work</option>
+                                    </select>
+                                </li>
+                                <li class="contact_form_listitem">
+                                    <label for="phone">* Phone Number:</label>
+                                    <input type="text" id="phone" name="phone" required >
+                                </li>
+                                <li class="contact_form_listitem">
+                                    <label for="email">* E-mail:</label>
+                                    <input type="text" id="email" name="email" required >
+                                </li>
+                                <li class="contact_form_listitem">
+                                    <label for="msg">Type Message Here:</label>
+                                    <textarea rows="1" cols="1" id="msg" name="message"></textarea>
+                                </li>
+                            </ul>
+                            <button>Submit</button>
+                        </div>
+                    </form>
+                </div>
         </div>
 
         <!--Webpage Footer-->

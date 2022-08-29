@@ -1,10 +1,25 @@
-/*color palette chosen from https://colorhunt.co/palette/f0ebe3e4dccf7d9d9c576f72*/
-
+/*color palette chosen from https://coolors.co/576f72-7d9d9c-e4dccf-f0ebe3-224c57*/
 /*WEB PAGE CONTAINER & LAYOUT*/
 
 body {
+    justify-content: center;
     text-align: center;
+    font-family: Montserrat, sans-serif;
+    background-color: ghostwhite;
+    min-width: 50vw;
+    color: #224C57;
 }
+
+h2 {
+    font-weight: 900;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+p, li {
+    font-weight: 600;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -13,22 +28,52 @@ body {
     width: 100vw;
     position: fixed;
     top: 0;
-    margin-bottom: 6rem;
+    margin-bottom: 2vh;
     order: 1;
 }
 
 .main {
-    padding: 7rem 15rem 7rem;
-    /*margin-top: 6rem;*/
+    width: 99vw;
+    padding: 5vh 15vw;
     order: 2;
+    display: flex;
+    flex-direction: column;
 
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main p {
+    list-style-type: none;
+    text-align: left;
+    letter-spacing: 0.1rem;
+    line-height: 1.75rem;
+    margin: 1vh 0 1vh 0;
+
+}
+
+.main a {
+    color: #445759;
+    font-weight: 900;
+    font-size: large;
+    font-style: italic;
+    text-decoration: none;
+    transition: text-shadow 200ms ease-in-out;
+}
+
+.main a:hover {
+    text-shadow: 0.05vw 0.05vh .2vh darkslategray;
 }
 
 .footer {
     width: 100vw;
     flex: auto;
-    box-shadow: 0 0 5px #576F72;
     background-color: #7D9D9C;
+    background-image: linear-gradient(#576F72, #7D9D9C);
     position: fixed;
     bottom: 0;
     color: #F0EBE3;
@@ -47,16 +92,11 @@ body {
     padding: 0;
 }
 
-body {
-    font-family: Montserrat, sans-serif;
-    background-color: rgba(240, 235, 227, 0.5);
-}
-
 .nav {
     position: fixed;
     width: 100vw;
-    box-shadow: 0 0 15px #576F72;
     background-color: #7D9D9C;
+    background-image: linear-gradient(#7D9D9C, #576F72);
 }
 
 .nav_list {
@@ -84,6 +124,10 @@ body {
     cursor: pointer;
     color: #F0EBE3;
 
+}
+
+.nav i {
+    padding: -1rem;
 }
 
 .nav_listitem:hover ul, :focus ul {
@@ -115,7 +159,7 @@ body {
 
 .nav_listitemdrop li {
     list-style: none;
-    color: #7D9D9C;
+    color: #224C57;
     padding: 0.5rem 0.5rem;
     border-radius: 0.25rem;
     transition: background-color 250ms ease-in-out;
@@ -149,6 +193,10 @@ body {
 }
 
 /*Site Map Main*/
+.site_map {
+    margin-top: 3rem;
+}
+
 .site_map_portfolio_li{
     list-style: none;
     padding: 0.5rem 4rem;
@@ -156,29 +204,32 @@ body {
 
 .site_map_li{
     list-style: none;
+    margin: .75rem 0;
+    align-self: center;
 }
 
 /*Contact Page*/
- form {
-     width: 50vw;
-     display: inline-block;
-     gap: 1.5rem;
-     padding: 2rem;
-     flex-direction: column;
+.main_form {
+    display: inline-block;
+    position: static;
+    gap: 1rem;
+    padding: 8vmax;
+    margin: 0 auto;
+
 }
 
-.contact_form_text p{
+.contact_form_text {
+    text-align-all: center;
     list-style: none;
     font-weight: lighter;
     font-size: large;
-    color: #576F72;
 }
 
 .contact_form_listitem {
     list-style: none;
     font-weight: bold;
     position: relative;
-    padding: 1rem 0.75rem;
+    padding: 1vh 1vw;
     cursor: pointer;
     color: #576F72;
 }
@@ -188,36 +239,212 @@ body {
     display: flex;
 }
 
-.contact_form_listitem input {
-    width: 45vw;
-    height: 2rem;
-    min-height: 2rem;
+.contact_form_listitem input, select {
+    width: 50vmax;
+    min-height: 1.75rem;
     cursor: pointer;
 }
 
 .contact_form_listitem input:required {
-    border: solid 0.5px lightcoral;
+    border: solid 0.1rem lightcoral;
 }
 
 
 .contact_form_listitem textarea {
-    width: 45vw;
+    width: 50vmax;
     height: 10vh;
 }
 
 .contact_form_list button {
-    width: 45vw;
-    height: 3rem;
+    width: 5rem;
+    height: 4vh;
     font-weight: bolder;
     font-size: large;
     color: #F0EBE3;
     background-color: #576F72;
     cursor: pointer;
-    transition: background-color 200ms ease-in-out;
+    transition: background-color 300ms, width 300ms ease-in-out;
 }
 
 .contact_form_list button:hover, :focus {
     color: #576F72;
     background-color: #F0EBE3;
     box-shadow: 0 0 10px #576F72;
+    width: 50vmax;
+}
+
+.req {
+    text-decoration: underline;
+}
+
+/*index.html*/
+.index_who_am_i, .index_walkthrough, .index_purpose {
+    padding: 4vh 0 4vh 0;
+    margin: 2vh 0 2vh 0;
+
+}
+
+.index_who_am_i ul, .index_walkthrough ul, .index_purpose ul {
+    columns: 2;
+    display: inline-block;
+    justify-content: center;
+    padding: 2vh 6vw 2vh 6vw;
+
+}
+
+.index_who_am_i li, .index_walkthrough li, .index_purpose li {
+    list-style-type: none;
+    text-align: left;
+    font-size: medium;
+    letter-spacing: 0.075rem;
+    line-height: 2.0rem;
+    margin-bottom: 0.5vh;
+
+}
+
+/*resume_main.html*/
+/*Relevant Experience, Education, Skills*/
+.resume_relevant_exp, .education, .skills_container {
+    display: flex;
+    flex-direction: column;
+    padding: 4vh 2vh 4vh 2vh;
+    margin: 2vh 0 2vh 0;
+    border-top: thick double #576F72;
+
+
+}
+
+.resume_relevant_exp h1 , .education h1, .skills_container h1{
+    padding: 4vh 0 6vh 0;
+    margin-bottom: 1vh;
+    font-size: 3.5rem;
+
+}
+
+.resume_relevant_exp ul, .education ul, .skills_container ul{
+    columns: 2;
+    justify-content: center;
+    padding: 2vh 4vw 2vh 6vw;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.resume_relevant_exp li, .education li, .skills_container li {
+    text-align: left;
+    font-size: medium;
+    letter-spacing: 0.075rem;
+    line-height: 2.0rem;
+    margin-bottom: 0.5vh;
+    list-style: square;
+
+}
+
+.resume_relevant_exp h3, .education h3 {
+    font-weight: 600;
+    font-size: 1.75rem;
+    text-align: left;
+    margin-bottom: 1vmax;
+}
+
+.resume_relevant_exp h4, .education h4 {
+    margin-top: 0.75rem;
+    font-weight: 600;
+    font-size: 1.15rem;
+    display: flex;
+    justify-content: space-between;
+    color: #224C57;
+
+}
+
+.resume_relevant_exp h2, .education h2 {
+    margin-bottom: 4vh;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.gis_dev, .gis_analyst,
+.mngr_prod,
+.cad_tech,
+.athabasca_u,
+.bgis, .autocad,
+.skills{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    height: auto;
+}
+
+
+/* portfolio_{*} */
+/*credit to accordion style: https://csslayout.io/accordion/*/
+
+.my_info {
+    margin: 4rem 0;
+    width: 50vw;
+    align-self: center;
+}
+
+.drop_d_box {
+    /* Border */
+    border: 1px solid #576F72;
+    border-bottom-color: transparent;
+    border-radius: 4px;
+    width: 50vw;
+    align-self: center;
+}
+
+.drop_d_box_item {
+    align-items: center;
+    border-bottom: 1px solid #576F72;
+}
+
+.drop_d_box_header {
+    /* Center the content horizontally */
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    padding: 1.5rem;
+    background-color: #576F72;
+    color: #F0EBE3;
+}
+
+.drop_d_box_toggle {
+    margin-right: 12px;
+}
+
+.drop_d_box_title {
+    flex: 1;
+    text-decoration: underline;
+}
+
+.drop_d_box_content {
+    display: block;
+    border-top: 1px solid #576F72;
+    padding: 16px;
+}
+
+
+
+/*portfolio*/
+/**/
+
+.portfolio {
+    display: inline-block;
+    padding: 3rem 0;
+    margin: 3rem 0;
+}
+
+.highlight {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 3rem 0;
+    align-self: center;
+}
+
+.code_container {
+    display: flex;
+    flex-direction: column;
 }
