@@ -21,44 +21,71 @@ for (i = 0; i < acc.length; i++) {
 
 
 /*
-Search bar js  tool
+Form Validation
 */
+let formValidated = false;
+const form_object = document.querySelector('form');
+const form_name = document.querySelector('input[name="name"]');
+const form_phone = document.querySelector('input[name="phone"]');
+const form_email = document.querySelector('input[name="email"]');
+const form_message = document.getElementById('msg');
 
-// init a blank array that the page values will reside in
-let search_content = [];
+const form_array = [form_name, form_phone, form_email, form_message]
 
-// init the window root variable
-const root = window.location.origin;
+// resets the specified element
+const elementReset = (element) => {
+    element.classList.remove("invalid");
+};
 
-/*
-init the page array that the get requests are off of. This could most likely be dynamic but I hardcoded since I do not
-know how to go about that at this point
- */
-const page_array = ["contact_page", "faq", "index",
-    "portfolio_main", "portfolio_1", "portfolio_2",
-    "portfolio_3", "portfolio_4", "resume_main", "sitemap"];
-
-// a function used to return the string of the url response
-function getResponse(urlResp) {
-    var data;
-    if (!urlResp.responseType || urlResp.responseType === 'text') {
-        data = urlResp.responseText;
-    } else {
-        data = urlResp.response
+// validator function
+const inputValidator = (field) => {
+    try {
+        elementReset(field);
     }
-    return data;
-}
+    catch {
+    }
+    // check if the name is a number
+    //regex source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+    if (field.name === "name") {
+        if (!form_name.value || !/^[a-z A-Z]+$/.test(form_name.value)) {
+            form_name.classList.add("invalid");
+        } else {formNameValidated = true;}
+    }
 
-// a for loop that get each page and adds the text result into the search_content array
-for (i=0; i<page_array.length; i++) {
-    let get_req = new XMLHttpRequest();
-    get_req.onreadystatechange = function() {
-        if (get_req.readyState === 4) {
-            search_content.push(getResponse(get_req));
+    if (field.name === "phone") {
+        if (!form_phone.value || !/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(form_phone.value)) {
+            form_phone.classList.add("invalid")
+        } else {formPhoneValidated = true;}
+    }
+
+    if (field.name === "email") {
+        if (!form_email.value || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form_email.value)) {
+            form_email.classList.add("invalid")
+        } else {formEmailValidated = true;}
+    }
+
+    if (field.id === "msg") {
+        if (field.value) {
+            formMsgValidated = true;
         }
     }
-    get_req.open('GET', root.toString().concat('/Unit2/root/html/', page_array[i], '.html'))
-    get_req.send()
-}
 
+};
+
+
+// form name event listeners
+for (let i = 0; i < form_array.length; i++) {
+    form_object.addEventListener('submit', (e) => {
+        e.preventDefault();
+        inputValidator(form_array[i]);
+        if (formValidated) {
+            /// use another function to check if the form can be submitted and return a
+            /// message with what needs to be fixed
+            console.log("Submitted")
+        }
+    });
+    form_object.addEventListener('input', () => {
+        inputValidator(form_array[i]);
+    });
+}
 

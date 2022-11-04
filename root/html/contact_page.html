@@ -35,20 +35,21 @@
         </div>
         <div class="main">
                 <div class="main_form">
-                    <form action="mailto:contact@yourdomain.com?subject=Website Contact Form Request" method="POST"
-                          enctype="multipart/form-data">
+                        <form>
+<!--                    <form action="mailto:contact@yourdomain.com?subject=Website Contact Form Request" method="POST"-->
+<!--                          enctype="multipart/form-data">-->
                         <div class="contact_form_list">
                             <p class="contact_form_text">Please fill out the information below, if you would like to send me a message!</p>
                             <p class="contact_form_text">* = Required Field</p>
                             <ul>
                                 <li class="contact_form_listitem">
                                     <label for="name">* Name:</label>
-                                    <input type="text" id="name" name="name" required >
+                                    <input type="text" id="name" name="name" placeholder="John Smith">
                                 </li>
                                 <li class="contact_form_listitem">
                                     <label for="reason">Reason for Contact</label>
                                     <select name="contact_reason" id="reason">
-                                        <option value="">--Please choose an option--</option>
+                                        <option disabled="disabled">--Please choose an option--</option>
                                         <option value="chat">Just want to chat</option>
                                         <option value="work">Would like to discuss a job opportunity</option>
                                         <option value="rfq">Would like to get a quote for contract work</option>
@@ -56,15 +57,15 @@
                                 </li>
                                 <li class="contact_form_listitem">
                                     <label for="phone">* Phone Number:</label>
-                                    <input type="text" id="phone" name="phone" required >
+                                    <input type="text" id="phone" name="phone" placeholder="999-888-7777">
                                 </li>
                                 <li class="contact_form_listitem">
                                     <label for="email">* E-mail:</label>
-                                    <input type="text" id="email" name="email" required >
+                                    <input type="text" id="email" name="email" placeholder="john_smith@domain.com">
                                 </li>
                                 <li class="contact_form_listitem">
-                                    <label for="msg">Type Message Here:</label>
-                                    <textarea rows="1" cols="1" id="msg" name="message"></textarea>
+                                    <label for="msg">* Type Message Here:</label>
+                                    <textarea rows="1" cols="1" id="msg" name="message" placeholder="Your message here..."></textarea>
                                 </li>
                             </ul>
                             <button>Submit</button>
@@ -82,5 +83,6 @@
             </ul>
         </div>
     </div>
+    <script  type="text/javascript" src="../javascript/script.js"></script>
 </body>
 </html>
