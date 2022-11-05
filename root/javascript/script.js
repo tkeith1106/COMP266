@@ -23,69 +23,85 @@ for (i = 0; i < acc.length; i++) {
 /*
 Form Validation
 */
-let formValidated = false;
-const form_object = document.querySelector('form');
-const form_name = document.querySelector('input[name="name"]');
-const form_phone = document.querySelector('input[name="phone"]');
-const form_email = document.querySelector('input[name="email"]');
-const form_message = document.getElementById('msg');
+// form help source: https://www.codehim.com/text-input/contact-form-validation-in-javascript/
 
-const form_array = [form_name, form_phone, form_email, form_message]
+// init all variables
+let formValidated = false;
+let submitted = false;
+const formObject = document.querySelector('form');
+const formName = document.querySelector('input[name="name"]');
+const formPhone = document.querySelector('input[name="phone"]');
+const formEmail = document.querySelector('input[name="email"]');
+const formMessage = document.getElementById('msg');
+const formSuccess = document.querySelector('.submitted');
+
+const formArray = [formName, formPhone, formEmail, formMessage]
 
 // resets the specified element
 const elementReset = (element) => {
     element.classList.remove("invalid");
+    element.nextElementSibling.style.visibility = "hidden"
 };
 
 // validator function
 const inputValidator = (field) => {
-    try {
-        elementReset(field);
-    }
-    catch {
-    }
-    // check if the name is a number
-    //regex source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-    if (field.name === "name") {
-        if (!form_name.value || !/^[a-z A-Z]+$/.test(form_name.value)) {
-            form_name.classList.add("invalid");
-        } else {formNameValidated = true;}
-    }
+    if (submitted) {
+        formValidated = true;
+        try {
+            elementReset(field);
+        } catch {
+        }
+        // check if the name is a number
+        //regex source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+        if (field.name === "name") {
+            if (!formName.value || !/^[a-z A-Z]+$/.test(formName.value)) {
+                formName.classList.add("invalid");
+                formName.nextElementSibling.style.visibility = "visible";
+                formValidated = false;
+            } else {
+            }
+        }
 
-    if (field.name === "phone") {
-        if (!form_phone.value || !/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(form_phone.value)) {
-            form_phone.classList.add("invalid")
-        } else {formPhoneValidated = true;}
-    }
+        if (field.name === "phone") {
+            if (!formPhone.value || !/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(formPhone.value)) {
+                formPhone.classList.add("invalid")
+                formPhone.nextElementSibling.style.visibility = "visible";
+                formValidated = false;
+            } else {
+            }
+        }
 
-    if (field.name === "email") {
-        if (!form_email.value || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form_email.value)) {
-            form_email.classList.add("invalid")
-        } else {formEmailValidated = true;}
-    }
+        if (field.name === "email") {
+            if (!formEmail.value || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formEmail.value)) {
+                formEmail.classList.add("invalid")
+                formEmail.nextElementSibling.style.visibility = "visible";
+                formValidated = false;
+            } else {
+            }
+        }
 
-    if (field.id === "msg") {
-        if (field.value) {
-            formMsgValidated = true;
+        if (field.id === "msg") {
+            if (!field.value) {
+                formMessage.nextElementSibling.style.visibility = "visible";
+                formValidated = false;
+            }
         }
     }
-
 };
 
-
 // form name event listeners
-for (let i = 0; i < form_array.length; i++) {
-    form_object.addEventListener('submit', (e) => {
+for (let i = 0; i < formArray.length; i++) {
+    formObject.addEventListener('submit', (e) => {
+        submitted = true;
         e.preventDefault();
-        inputValidator(form_array[i]);
+        inputValidator(formArray[i]);
         if (formValidated) {
-            /// use another function to check if the form can be submitted and return a
-            /// message with what needs to be fixed
-            console.log("Submitted")
+            formObject.remove();
+            formSuccess.style.visibility = "visible";
         }
     });
-    form_object.addEventListener('input', () => {
-        inputValidator(form_array[i]);
+    formObject.addEventListener('input', () => {
+        inputValidator(formArray[i]);
     });
 }
 
