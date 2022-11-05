@@ -19,8 +19,10 @@
                     </li>
                     <li class="nav_listitem">
                         <i class="icon">
-                            <img src="../images/map_layers.png"
-                                 height="30px">
+                            <a href="index.html">
+                                <img src="../images/map_layers.png"
+                                     height="30px">
+                            </a>
                         </i>
                         <ul class="nav_listitemdrop">
                             <li><a href="index.html">Home Page</a></li>
@@ -39,9 +41,18 @@
                     The form action doesn't work in the JS by design since it won't be posted to a server that sends
                     the form info in an email
                     -->
-                    <form action="mailto:contact@yourdomain.com?subject=Website Contact Form Request" method="POST"
+
+                    <!--
+                    source on how to send forms https://formsubmit.co
+                    the unique is the action below redirects to my personal email. since AU doesn't have an active server
+                    for me to host my website you will need to add your own email address to test this out... it requires
+                    you to activate your email from your own local domain in order for the form to be sent
+                    -->
+                    <form action="https://formsubmit.co/19afbbb88c8c91be8afca699da90ceeb" method="POST"
                           enctype="multipart/form-data">
                         <div class="contact_form_list">
+                            <input type="hidden" name="_subject" value="Web Page Contact Request">
+                            <input type="hidden" name="_next" value="">
                             <p class="contact_form_text">Please fill out the information below, if you would like to send me a message!</p>
                             <p class="contact_form_text">* = Required Field</p>
                             <ul>
@@ -68,13 +79,13 @@
                                 </li>
                                 <li class="contact_form_listitem">
                                     <label for="email">* E-mail:</label>
-                                    <input type="text" id="email" name="email" placeholder="john_smith@domain.com">
+                                    <input type="email" id="email" name="email" placeholder="john_smith@domain.com">
                                     <span class="form_invalid">Please enter a valid email address.</span>
                                 </li>
                                 <li class="contact_form_listitem">
                                     <label for="msg">* Type Message Here:</label>
                                     <textarea rows="1" cols="1" id="msg" name="message" placeholder="Your message here..."></textarea>
-                                    <span class="form_invalid">You must enter some text into the message box.</span>
+                                    <span class="form_invalid">You need to enter a message greater than 10 characters..</span>
                                 </li>
                             </ul>
                             <button>Submit</button>

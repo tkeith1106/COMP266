@@ -30,12 +30,13 @@ let formValidated = false;
 let submitted = false;
 
 //init the constant variables using query selector and the elementbyid
+const formDiv = document.querySelector('.main_form');
 const formObject = document.querySelector('form');
 const formName = document.querySelector('input[name="name"]');
 const formPhone = document.querySelector('input[name="phone"]');
 const formEmail = document.querySelector('input[name="email"]');
 const formMessage = document.getElementById('msg');
-const formSuccess = document.querySelector('.submitted');
+const formSuccess = document.querySelector('input[name="_next"]');
 
 // init the form array which will be used in a later for-loop
 // update this to have form elements you want to validate
@@ -50,8 +51,8 @@ const elementReset = (element) => {
 // validator function that checks the validity of each selected form element
 const inputValidator = (field) => {
     if (submitted) {
-        // set the form to validated and any invalidated section will flag this as false
         formValidated = true;
+        // set the form to validated and any invalidated section will flag this as false
         // try and catch any form without the invalid class (ex. text area element)
         try {
             elementReset(field);
@@ -65,7 +66,6 @@ const inputValidator = (field) => {
                 formName.classList.add("invalid");
                 formName.nextElementSibling.style.visibility = "visible";
                 formValidated = false;
-            } else {
             }
         }
 
@@ -75,7 +75,6 @@ const inputValidator = (field) => {
                 formPhone.classList.add("invalid")
                 formPhone.nextElementSibling.style.visibility = "visible";
                 formValidated = false;
-            } else {
             }
         }
 
@@ -85,19 +84,26 @@ const inputValidator = (field) => {
                 formEmail.classList.add("invalid")
                 formEmail.nextElementSibling.style.visibility = "visible";
                 formValidated = false;
-            } else {
             }
         }
 
         // check to see if the text area is empty
         if (field.id === "msg") {
-            if (!field.value) {
+            if (!field.value || field.value.length <10) {
                 formMessage.nextElementSibling.style.visibility = "visible";
                 formValidated = false;
             }
         }
     }
 };
+
+// input event listener
+formArray.forEach(input => {
+    // input listener event
+    formObject.addEventListener('input', () => {
+        inputValidator(input);
+    });
+})
 
 // for-loop to iterate through the functions to validate the forms
 for (let i = 0; i < formArray.length; i++) {
@@ -107,15 +113,14 @@ for (let i = 0; i < formArray.length; i++) {
         // prevent the form from resetting
         e.preventDefault();
         inputValidator(formArray[i]);
-        if (formValidated) {
-            // if submission is successful then remove form and display the form success message
-            formObject.remove();
-            formSuccess.style.visibility = "visible";
-        }
-    });
-    // input listener event
-    formObject.addEventListener('input', () => {
-        inputValidator(formArray[i]);
     });
 }
 
+formObject.addEventListener('submit', (e) => {
+// check if form is fully validated
+    if (formValidated) {
+        // if submission successful a url path is added into the hidden _next value for formsubmit.co to forward to
+        formSuccess.value = (document.location.origin + document.location.pathname).toString()
+        formObject.submit()
+    }
+});
