@@ -30,7 +30,6 @@ let formValidated = false;
 let submitted = false;
 
 //init the constant variables using query selector and the elementbyid
-const formDiv = document.querySelector('.main_form');
 const formObject = document.querySelector('form');
 const formName = document.querySelector('input[name="name"]');
 const formPhone = document.querySelector('input[name="phone"]');
