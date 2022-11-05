@@ -21,13 +21,15 @@ for (i = 0; i < acc.length; i++) {
 
 
 /*
-Form Validation
+Form Validation Program
 */
 // form help source: https://www.codehim.com/text-input/contact-form-validation-in-javascript/
 
-// init all variables
+// init variables that will change
 let formValidated = false;
 let submitted = false;
+
+//init the constant variables using query selector and the elementbyid
 const formObject = document.querySelector('form');
 const formName = document.querySelector('input[name="name"]');
 const formPhone = document.querySelector('input[name="phone"]');
@@ -35,24 +37,29 @@ const formEmail = document.querySelector('input[name="email"]');
 const formMessage = document.getElementById('msg');
 const formSuccess = document.querySelector('.submitted');
 
+// init the form array which will be used in a later for-loop
+// update this to have form elements you want to validate
 const formArray = [formName, formPhone, formEmail, formMessage]
 
-// resets the specified element
+// function that resets the specified element
 const elementReset = (element) => {
     element.classList.remove("invalid");
     element.nextElementSibling.style.visibility = "hidden"
 };
 
-// validator function
+// validator function that checks the validity of each selected form element
 const inputValidator = (field) => {
     if (submitted) {
+        // set the form to validated and any invalidated section will flag this as false
         formValidated = true;
+        // try and catch any form without the invalid class (ex. text area element)
         try {
             elementReset(field);
         } catch {
+            //do nothing if error is thrown here
         }
+        //regex help source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
         // check if the name is a number
-        //regex source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
         if (field.name === "name") {
             if (!formName.value || !/^[a-z A-Z]+$/.test(formName.value)) {
                 formName.classList.add("invalid");
@@ -62,6 +69,7 @@ const inputValidator = (field) => {
             }
         }
 
+        // check for a variety of valid phone number combo's
         if (field.name === "phone") {
             if (!formPhone.value || !/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(formPhone.value)) {
                 formPhone.classList.add("invalid")
@@ -71,6 +79,7 @@ const inputValidator = (field) => {
             }
         }
 
+        // check for a variety of valid email combinations
         if (field.name === "email") {
             if (!formEmail.value || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formEmail.value)) {
                 formEmail.classList.add("invalid")
@@ -80,6 +89,7 @@ const inputValidator = (field) => {
             }
         }
 
+        // check to see if the text area is empty
         if (field.id === "msg") {
             if (!field.value) {
                 formMessage.nextElementSibling.style.visibility = "visible";
@@ -89,17 +99,21 @@ const inputValidator = (field) => {
     }
 };
 
-// form name event listeners
+// for-loop to iterate through the functions to validate the forms
 for (let i = 0; i < formArray.length; i++) {
+    // submit listener event
     formObject.addEventListener('submit', (e) => {
         submitted = true;
+        // prevent the form from resetting
         e.preventDefault();
         inputValidator(formArray[i]);
         if (formValidated) {
+            // if submission is successful then remove form and display the form success message
             formObject.remove();
             formSuccess.style.visibility = "visible";
         }
     });
+    // input listener event
     formObject.addEventListener('input', () => {
         inputValidator(formArray[i]);
     });
