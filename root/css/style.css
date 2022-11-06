@@ -1,4 +1,6 @@
 /*color palette chosen from https://coolors.co/576f72-7d9d9c-e4dccf-f0ebe3-224c57*/
+/*https://coolors.co/e0dbcd-8b8f92-ea7e5d-515252-221f1b*/
+
 /*WEB PAGE CONTAINER & LAYOUT*/
 
 body {
@@ -503,4 +505,13 @@ pre {
     color: grey;
     font-size: 1.2rem;
 
+}
+
+#theme_change {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border-radius: .30rem;
+    background-color: #656464;
+    color: lightgrey;
+    padding: .25rem;
 }

@@ -6,7 +6,7 @@
     <title>Portfolio 4</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i, 700">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../javascript/highlight/styles/androidstudio.min.css">
+    <link id="theme" rel="stylesheet" href="../javascript/highlight/styles/androidstudio.min.css">
     <script type="text/javascript" src="../javascript/highlight/highlight.min.js"></script>
 </head>
 
@@ -76,6 +76,7 @@ if __name__ == '__main__':
                 </pre>
         </div>
         <div class="highlight">
+            <button id="theme_change">Switch Theme</button>
             <h3>
                 <a href="https://github.com/hastagAB/Awesome-Python-Scripts/blob/master/speak_like_yoda/speak_like_yoda.py">
                     Source: https://github.com/hastagAB/Awesome-Python-Scripts/blob/master/speak_like_yoda/speak_like_yoda.py
@@ -96,6 +97,21 @@ if __name__ == '__main__':
 </div>
 <script type="text/javascript" src="../javascript/jquery.js"></script>
 <script>hljs.highlightAll();</script>
+<script type="text/javascript">
+    $(function(){
+        const themeArray = ["../javascript/highlight/styles/vs.min.css",
+            "../javascript/highlight/styles/androidstudio.min.css"];
+        $("#theme_change").click(function(){
+            if ($("#theme").attr('href') === themeArray[1]) {
+                $("#theme").attr('href', "../javascript/highlight/styles/vs.min.css");
+                $('.code_container').css( "background-color", '#fff');
+            } else if ($("#theme").attr('href') === themeArray[0]) {
+                $("#theme").attr('href', "../javascript/highlight/styles/androidstudio.min.css");
+                $('.code_container').css( "background-color", '#282b2e');
+            }
+        });
+    });
+</script>
 <script type="text/javascript">
 
 
