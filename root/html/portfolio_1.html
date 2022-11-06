@@ -6,74 +6,118 @@
     <title>Portfolio 1</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i, 700">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../javascript/highlight/styles/androidstudio.min.css">
+    <script type="text/javascript" src="../javascript/highlight/highlight.min.js"></script>
 </head>
 
 <body>
-    <div class="container">
-        <!--Web Page Header-->
-        <div class="header">
-            <div class="nav">
-                <ul class="nav_list">
-                    <li class="nav_listheader">
-                        Portfolio
-                    </li>
-                    <li class="nav_listitem">
-                        <i class="icon">
-                            <a href="index.html">
-                                <img src="../images/map_layers.png"
-                                     height="30px">
-                            </a>
-                        </i>
-                        <ul class="nav_listitemdrop">
-                            <li><a href="index.html">Home Page</a></li>
-                            <li><a href="resume_main.html">Resume</a></li>
-                            <li><a href="portfolio_main.html">Portfolio</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="contact_page.html">Contact Page</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!--Main Content of the Page-->
-        <div class="main">
-            <div class="highlight">
-                <h1>Project Highlight 1</h1>
-                <div class="code_container">
-                    <p>
-                        The below text is a placeholder for the actual code which will be pulled from real world professional
-                        projects. This will be changed no later than the final submission of the website for this course
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                        dolore magna aliqua. Arcu odio ut sem nulla. Fames ac turpis egestas integer eget. Nibh mauris cursus
-                        mattis molestie a iaculis at. Integer enim neque volutpat ac. Nibh sed pulvinar proin gravida hendrerit
-                        lectus. Viverra tellus in hac habitasse. Fringilla ut morbi tincidunt augue interdum velit euismod in.
-                        Tortor condimentum lacinia quis vel. Facilisis volutpat est velit egestas dui id ornare arcu. Enim
-                        lobortis scelerisque fermentum dui faucibus. Tellus cras adipiscing enim eu turpis egestas pretium.
-                        Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet. Eu turpis egestas pretium aenean.
-                        Ultrices sagittis orci a scelerisque purus.
+<div class="container">
 
-                        Aenean sed adipiscing diam donec adipiscing. Enim sit amet venenatis urna cursus eget nunc scelerisque
-                        viverra. Amet porttitor eget dolor morbi. Elit sed vulputate mi sit. Cras pulvinar mattis nunc sed
-                        blandit libero volutpat. Nam at lectus urna duis. Vitae et leo duis ut diam quam nulla. Penatibus et
-                        magnis dis parturient montes nascetur. In nisl nisi scelerisque eu ultrices vitae auctor. Lobortis
-                        elementum nibh tellus molestie nunc non blandit. Vitae purus faucibus ornare suspendisse sed.
-                        Ipsum dolor sit amet consectetur adipiscing. Viverra nibh cras pulvinar mattis nunc sed blandit libero
-                        volutpat. Pulvinar etiam non quam lacus suspendisse faucibus. At erat pellentesque adipiscing commodo
-                        elit at imperdiet.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <ul class="footer_list">
-                <li>Last Modified: August 28, 2022</li>
-                <li>Last Modified By: T. Keith</li>
-                <li><a href="sitemap.html">Site Map</a></li>
+    <!--Web Page Header-->
+    <div class="header">
+        <div class="nav">
+            <ul class="nav_list">
+                <li class="nav_listheader">
+                    Portfolio
+                </li>
+                <li class="nav_listitem">
+                    <i class="icon">
+                        <a href="index.html">
+                            <img src="../images/map_layers.png"
+                                 height="30px">
+                        </a>
+                    </i>
+                    <ul class="nav_listitemdrop">
+                        <li><a href="index.html">Home Page</a></li>
+                        <li><a href="resume_main.html">Resume</a></li>
+                        <li><a href="portfolio_main.html">Portfolio</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact_page.html">Contact Page</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
+
+    <!--Main Content of the Page-->
+    <div class="main">
+        <div class="highlight">
+            <h1>Project Highlight 1: CSV to Excel Script</h1>
+        </div>
+        <div class="code_container">
+            <pre>
+                <code class="python">
+#!python3
+# -*- coding: utf-8 -*-
+
+import openpyxl
+import sys
+
+#inputs
+print("This programme writes the data in any Comma-separated value file (such as: .csv or .data) to a Excel file.")
+print("The input and output files must be in the same directory of the python file for the programme to work.\n")
+
+csv_name = input("Name of the CSV file for input (with the extension): ")
+sep = input("Seperator of the CSV file: ")
+excel_name = input("Name of the excel file for output (with the extension): ")
+sheet_name = input("Name of the excel sheet for output: ")
+
+#opening the files
+try:
+wb = openpyxl.load_workbook(excel_name)
+sheet = wb.get_sheet_by_name(sheet_name)
+
+file = open(csv_name,"r",encoding = "utf-8")
+except:
+print("File Error!")
+sys.exit()
+
+#rows and columns
+row = 1
+column = 1
+
+#for each line in the file
+for line in file:
+#remove the \n from the line and make it a list with the seperator
+line = line[:-1]
+line = line.split(sep)
+
+#for each data in the line
+for data in line:
+    #write the data to the cell
+    sheet.cell(row,column).value = data
+    #after each data column number increases by 1
+    column += 1
+
+#to write the next line column number is set to 1 and row number is increased by 1
+column = 1
+row += 1
+
+#saving the excel file and closing the csv file
+wb.save(excel_name)
+file.close()
+                </code>
+            </pre>
+        </div>
+        <div class="highlight">
+                <h3>
+                    <a href="https://github.com/hastagAB/Awesome-Python-Scripts/blob/master/CSV-to-Excel/main.py">
+                    Source: https://github.com/hastagAB/Awesome-Python-Scripts/blob/master/CSV-to-Excel/main.py
+                    </a>
+                </h3>
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul class="footer_list">
+            <li>Last Modified: August 28, 2022</li>
+            <li>Last Modified By: T. Keith</li>
+            <li><a href="sitemap.html">Site Map</a></li>
+        </ul>
+    </div>
+
+</div>
+    <script type="text/javascript" src="../javascript/jquery.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
