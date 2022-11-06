@@ -245,7 +245,7 @@ while (True):
 
     <div class="footer">
         <ul class="footer_list">
-            <li>Last Modified: August 28, 2022</li>
+            <li id="last_modified"></li>
             <li>Last Modified By: T. Keith</li>
             <li><a href="sitemap.html">Site Map</a></li>
         </ul>
@@ -267,6 +267,11 @@ while (True):
                 $('.code_container').css( "background-color", '#282b2e');
             }
         });
+    });
+
+    $(function(){
+        let $lmd = document.lastModified;
+        $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
     });
 </script>
 </body>
