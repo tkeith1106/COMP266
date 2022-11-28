@@ -34,7 +34,7 @@ Form Validation Program
 
 if (currentPage.includes("contact_page")) {
 // init variables that will change
-    let formValidated = false;
+    let formValidated = [false, false, false, false];
     let submitted = false;
 
 //init the constant variables using query selector and the elementbyid
@@ -58,7 +58,6 @@ if (currentPage.includes("contact_page")) {
 // validator function that checks the validity of each selected form element
     const inputValidator = (field) => {
         if (submitted) {
-            formValidated = true;
             // set the form to validated and any invalidated section will flag this as false
             // try and catch any form without the invalid class (ex. text area element)
             try {
@@ -72,8 +71,8 @@ if (currentPage.includes("contact_page")) {
                 if (!formName.value || !/^[a-z A-Z]+$/.test(formName.value)) {
                     formName.classList.add("invalid");
                     formName.nextElementSibling.style.visibility = "visible";
-                    formValidated = false;
-                }
+                    formValidated[0] = false;
+                } else {formValidated[0] = true;}
             }
 
             // check for a variety of valid phone number combo's
@@ -81,8 +80,8 @@ if (currentPage.includes("contact_page")) {
                 if (!formPhone.value || !/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/.test(formPhone.value)) {
                     formPhone.classList.add("invalid")
                     formPhone.nextElementSibling.style.visibility = "visible";
-                    formValidated = false;
-                }
+                    formValidated[1] = false;
+                } else {formValidated[1] = true;}
             }
 
             // check for a variety of valid email combinations
@@ -90,16 +89,16 @@ if (currentPage.includes("contact_page")) {
                 if (!formEmail.value || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formEmail.value)) {
                     formEmail.classList.add("invalid")
                     formEmail.nextElementSibling.style.visibility = "visible";
-                    formValidated = false;
-                }
+                    formValidated[2] = false;
+                } else {formValidated[2] = true;}
             }
 
             // check to see if the text area is empty
             if (field.id === "msg") {
                 if (!field.value || field.value.length < 10) {
                     formMessage.nextElementSibling.style.visibility = "visible";
-                    formValidated = false;
-                }
+                    formValidated[3] = false;
+                } else {formValidated[3] = true;}
             }
         }
     };
@@ -125,7 +124,7 @@ if (currentPage.includes("contact_page")) {
 
     formObject.addEventListener('submit', (e) => {
 // check if form is fully validated
-        if (formValidated) {
+        if (formValidated.every(elm => elm === true)) {
             // if submission successful a url path is added into the hidden _next value for formsubmit.co to forward to
             formSuccess.value = (document.location.origin + document.location.pathname).toString()
             formObject.submit()
