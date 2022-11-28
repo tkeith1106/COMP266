@@ -196,7 +196,18 @@ p, li {
     color: #F0EBE3;
 }
 
-.footer_list li a:hover {
+#footer_button button {
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #F0EBE3;
+    font-size: 0.75rem;
+    /*font-weight: bold;*/
+    margin-left: fill;
+}
+
+.footer_list li a:hover, #footer_button button:hover {
     text-shadow: 0 0 2px white;
     color: #576F72;
 }

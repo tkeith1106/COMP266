@@ -9,213 +9,213 @@
 </head>
 
 <body>
-    <div class="container">
-        <!--Web Page Header-->
-        <div class="header">
-            <div class="nav">
-                <ul class="nav_list">
-                    <li class="nav_listheader">
-                        F.A.Q
+<div class="container">
+    <!--Web Page Header-->
+    <div class="header">
+        <div class="nav">
+            <ul class="nav_list">
+                <li class="nav_listheader">
+                    F.A.Q
+                </li>
+                <li class="nav_listitem">
+                    <i class="icon">
+                        <a href="index.html">
+                            <img src="../images/map_layers.png"
+                                 height="30px">
+                        </a>
+                    </i>
+                    <ul class="nav_listitemdrop">
+                        <li><a href="index.html">Home Page</a></li>
+                        <li><a href="resume_main.html">Resume</a></li>
+                        <li><a href="portfolio_main.html">Portfolio</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact_page.html">Contact Page</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="my_info">
+            <h4>
+                This is a page dedicated to explaining some topics that might be foreign to someone not educated in the
+                field of anything relating to Geographic Information Systems
+            </h4>
+        </div>
+
+
+        <div class="drop_d_box" id="accordion">
+            <button class="drop_d_box_item">
+                <h3>What is GIS</h3>
+            </button>
+            <div class="drop_d_box_content">
+                <p>
+                    G.I.S. is an acronym that stands for "Geographic Information System".
+                </p>
+                <p>
+                    It is a system that is used to create, manage and analyze "information". This information is
+                    formatted in a variety of different data types; both spatial and non-spatial. The purpose of GIS
+                    is to help its users to make sense of their data's patterns and relationships in a geographic
+                    context.
+                </p>
+                <p>
+                    References & Sources:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://www.esri.com/en-us/what-is-gis/overview">
+                        ESRI
+                        </a>
                     </li>
-                    <li class="nav_listitem">
-                        <i class="icon">
-                            <a href="index.html">
-                                <img src="../images/map_layers.png"
-                                     height="30px">
-                            </a>
-                        </i>
-                        <ul class="nav_listitemdrop">
-                            <li><a href="index.html">Home Page</a></li>
-                            <li><a href="resume_main.html">Resume</a></li>
-                            <li><a href="portfolio_main.html">Portfolio</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="contact_page.html">Contact Page</a></li>
-                        </ul>
+                </ul>
+            </div>
+
+            <button class="drop_d_box_item">
+                <h3>What is SQL</h3>
+            </button>
+            <div class="drop_d_box_content">
+                <p>
+                    SQL is an acronym that stands for Structured Query Language.
+                </p>
+                <p>
+                    It is a language specifically used to relay data and information to a database and most often
+                    a relational database management system (RDMS). This language allows for things as simple as
+                    a query that shows information that resides within a database; as complex as having an external
+                    application update, delete or create data through a server over a network.
+                </p>
+                <p>
+                    SQL does have a few different dialects with slightly different syntax. So its always a good idea
+                    to make sure you know which dialect the database you are communicating with works in.
+                </p>
+                <p>
+                    References & Sources:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://www.sqlcourse.com/beginner-course/what-is-sql/">
+                            SQL Course
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-ver16">
+                            T-SQL
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="drop_d_box_item">
+                <h3>What is Python</h3>
+            </button>
+            <div class="drop_d_box_content">
+                <p>
+                    Python is a high-level interpreted programming language.
+                </p>
+                <p>
+                    Overall Python is a very easy to learn and use programming language that has been growing fast
+                    in popularity. The best explanation I found was through wikipedia, and it states:
+                    <span class="italics">
+                        "Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms,
+                        including structured (particularly procedural), object-oriented and functional programming.
+                        It is often described as a "batteries included" language due to its comprehensive standard
+                        library."
+                    </span>
+                </p>
+                <p>
+                    Being an interpreted programming language that means that the code is executed on the fly as
+                    a program or script is run: line-by-line. This is in contrast to other languages like C++ or Java
+                    which specifically need to be compiled in order to be run.
+                </p>
+                <p>
+                    A drawback of an interpreted language is it does run much slower than a compiled language due to
+                    the on-the-fly execution of code
+                </p>
+                <p>
+                    References & Sources:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Wikipedia - Python</a>
+                    </li>
+                </ul>
+            </div>
+
+            <button class="drop_d_box_item">
+                <h3>What makes a GIS Developer Different from Other Developers</h3>
+            </button>
+            <div class="drop_d_box_content">
+                <p>
+                    The main difference is the inclusion and integration of spatial data and objects into development
+                </p>
+                <p>
+                    Although there is lots of intersection between regular Developers like Python, Java or C++.
+                    GIS developers are a more niche subset of developers that have to consider different things when
+                    developing their code.
+                </p>
+                <p>
+                    A good example of this is projections and transformations. The earth is a spheroid and spatial data
+                    is captured in a Geographic Coordinate System generally in Latitude and Longitude. When someone
+                    wants to map or analyze their spatial data they need to convert it into a planar coordinate
+                    system to do this.
+                </p>
+                <p>
+                    When doing this you will have to think about the datum that the data was captured in and the medium
+                    that is being used for the mapping or analysis. Additionally, there is always compromise that must
+                    be made in order for this conversion to happen. You have to consider things like whether you
+                    want an equal area, or do you want distance or shape preserved and that will affect the projected
+                    coordinate system that you will use.
+                </p>
+                <p>
+                    For more information please refer to the following website to gain a deeper understanding:
+                    <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/">
+                        Geographic Coordinate Systems versus Projected Coordinate System
+                    </a>
+                </p>
+            </div>
+
+            <button class="drop_d_box_item">
+                <h3>What is an ETL and what does it mean</h3>
+            </button>
+            <div class="drop_d_box_content">
+                <p>
+                    ETL stands for Extract-Transform-Load.
+                </p>
+                <p>
+                    ETL is a process the <span class="bold">extracts</span> data from different data sources,
+                    then <span class="bold">transforms</span> this data into
+                    more readable/usable formats and finally <span class="bold">loads</span> this data into a target
+                    database for consumption by company's and/or their clients.
+                </p>
+                <p>
+                    References & Sources:
+                </p>
+                <ul>
+                    <li>
+                        <a href="https://www.ibm.com/cloud/learn/etl">ETL's Explained</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="main">
-            <div class="my_info">
-                <h4>
-                    This is a page dedicated to explaining some topics that might be foreign to someone not educated in the
-                    field of anything relating to Geographic Information Systems
-                </h4>
-            </div>
-
-
-            <div class="drop_d_box" id="accordion">
-                <button class="drop_d_box_item">
-                    <h3>What is GIS</h3>
-                </button>
-                <div class="drop_d_box_content">
-                    <p>
-                        G.I.S. is an acronym that stands for "Geographic Information System".
-                    </p>
-                    <p>
-                        It is a system that is used to create, manage and analyze "information". This information is
-                        formatted in a variety of different data types; both spatial and non-spatial. The purpose of GIS
-                        is to help its users to make sense of their data's patterns and relationships in a geographic
-                        context.
-                    </p>
-                    <p>
-                        References & Sources:
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="https://www.esri.com/en-us/what-is-gis/overview">
-                            ESRI
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button class="drop_d_box_item">
-                    <h3>What is SQL</h3>
-                </button>
-                <div class="drop_d_box_content">
-                    <p>
-                        SQL is an acronym that stands for Structured Query Language.
-                    </p>
-                    <p>
-                        It is a language specifically used to relay data and information to a database and most often
-                        a relational database management system (RDMS). This language allows for things as simple as
-                        a query that shows information that resides within a database; as complex as having an external
-                        application update, delete or create data through a server over a network.
-                    </p>
-                    <p>
-                        SQL does have a few different dialects with slightly different syntax. So its always a good idea
-                        to make sure you know which dialect the database you are communicating with works in.
-                    </p>
-                    <p>
-                        References & Sources:
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="https://www.sqlcourse.com/beginner-course/what-is-sql/">
-                                SQL Course
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-ver16">
-                                T-SQL
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button class="drop_d_box_item">
-                    <h3>What is Python</h3>
-                </button>
-                <div class="drop_d_box_content">
-                    <p>
-                        Python is a high-level interpreted programming language.
-                    </p>
-                    <p>
-                        Overall Python is a very easy to learn and use programming language that has been growing fast
-                        in popularity. The best explanation I found was through wikipedia, and it states:
-                        <span class="italics">
-                            "Python is dynamically-typed and garbage-collected. It supports multiple programming paradigms,
-                            including structured (particularly procedural), object-oriented and functional programming.
-                            It is often described as a "batteries included" language due to its comprehensive standard
-                            library."
-                        </span>
-                    </p>
-                    <p>
-                        Being an interpreted programming language that means that the code is executed on the fly as
-                        a program or script is run: line-by-line. This is in contrast to other languages like C++ or Java
-                        which specifically need to be compiled in order to be run.
-                    </p>
-                    <p>
-                        A drawback of an interpreted language is it does run much slower than a compiled language due to
-                        the on-the-fly execution of code
-                    </p>
-                    <p>
-                        References & Sources:
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Wikipedia - Python</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button class="drop_d_box_item">
-                    <h3>What makes a GIS Developer Different from Other Developers</h3>
-                </button>
-                <div class="drop_d_box_content">
-                    <p>
-                        The main difference is the inclusion and integration of spatial data and objects into development
-                    </p>
-                    <p>
-                        Although there is lots of intersection between regular Developers like Python, Java or C++.
-                        GIS developers are a more niche subset of developers that have to consider different things when
-                        developing their code.
-                    </p>
-                    <p>
-                        A good example of this is projections and transformations. The earth is a spheroid and spatial data
-                        is captured in a Geographic Coordinate System generally in Latitude and Longitude. When someone
-                        wants to map or analyze their spatial data they need to convert it into a planar coordinate
-                        system to do this.
-                    </p>
-                    <p>
-                        When doing this you will have to think about the datum that the data was captured in and the medium
-                        that is being used for the mapping or analysis. Additionally, there is always compromise that must
-                        be made in order for this conversion to happen. You have to consider things like whether you
-                        want an equal area, or do you want distance or shape preserved and that will affect the projected
-                        coordinate system that you will use.
-                    </p>
-                    <p>
-                        For more information please refer to the following website to gain a deeper understanding:
-                        <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/gcs_vs_pcs/">
-                            Geographic Coordinate Systems versus Projected Coordinate System
-                        </a>
-                    </p>
-                </div>
-
-                <button class="drop_d_box_item">
-                    <h3>What is an ETL and what does it mean</h3>
-                </button>
-                <div class="drop_d_box_content">
-                    <p>
-                        ETL stands for Extract-Transform-Load.
-                    </p>
-                    <p>
-                        ETL is a process the <span class="bold">extracts</span> data from different data sources,
-                        then <span class="bold">transforms</span> this data into
-                        more readable/usable formats and finally <span class="bold">loads</span> this data into a target
-                        database for consumption by company's and/or their clients.
-                    </p>
-                    <p>
-                        References & Sources:
-                    </p>
-                    <ul>
-                        <li>
-                            <a href="https://www.ibm.com/cloud/learn/etl">ETL's Explained</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!--Webpage Footer-->
-        <div class="footer">
-            <ul class="footer_list">
-                <li id="last_modified"></li>
-                <li>Last Modified By: T. Keith</li>
-                <li><a href="sitemap.html">Site Map</a></li>
-            </ul>
-        </div>
     </div>
 
-    <script type="text/javascript" src="../javascript/script.js"></script>
-    <script type="text/javascript" src="../javascript/jquery.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            let $lmd = document.lastModified;
-            $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
-        });
-    </script>
+    <!--Webpage Footer-->
+    <div class="footer">
+        <ul class="footer_list">
+            <li><li id="footer_button"><button>Random Joke</button></li></li>
+            <li><a href="sitemap.html">Site Map</a></li>
+            <li id="last_modified"></li>
+            <li>Last Modified By: T. Keith</li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="../javascript/script.js"></script>
+<script type="text/javascript" src="../javascript/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        let $lmd = document.lastModified;
+        $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
+    });
+</script>
 
 </body>
 </html>

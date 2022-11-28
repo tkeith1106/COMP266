@@ -9,57 +9,58 @@
 </head>
 
 <body>
-    <div class="container">
-        <!--Web Page Header-->
-        <div class="header">
-            <div class="nav">
-                <ul class="nav_list">
-                    <li class="nav_listheader">
-                        Portfolio | Main
-                    </li>
-                    <li class="nav_listitem">
-                        <i class="icon">
-                            <a href="index.html">
-                                <img src="../images/map_layers.png"
-                                     height="30px">
-                            </a>
-                        </i>
-                        <ul class="nav_listitemdrop">
-                            <li><a href="index.html">Home Page</a></li>
-                            <li><a href="resume_main.html">Resume</a></li>
-                            <li><a href="portfolio_main.html">Portfolio</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="contact_page.html">Contact Page</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!--Main Content of the Page-->
-        <div class="main">
-            <div class="portfolio">
-                <h2><a href="portfolio_1.html">Project Highlight 1: CSV to Excel Script</a></h2>
-                <h2><a href="portfolio_2.html">Project Highlight 2: File Organizer</a></h2>
-                <h2><a href="portfolio_3.html">Project Highlight 3: RSA Algorithm</a></h2>
-                <h2><a href="portfolio_4.html">Project Highlight 4: Speak Like Yoda</a></h2>
-            </div>
-        </div>
-
-        <div class="footer">
-            <ul class="footer_list">
-                <li id="last_modified"></li>
-                <li>Last Modified By: T. Keith</li>
-                <li><a href="sitemap.html">Site Map</a></li>
+<div class="container">
+    <!--Web Page Header-->
+    <div class="header">
+        <div class="nav">
+            <ul class="nav_list">
+                <li class="nav_listheader">
+                    Portfolio | Main
+                </li>
+                <li class="nav_listitem">
+                    <i class="icon">
+                        <a href="index.html">
+                            <img src="../images/map_layers.png"
+                                 height="30px">
+                        </a>
+                    </i>
+                    <ul class="nav_listitemdrop">
+                        <li><a href="index.html">Home Page</a></li>
+                        <li><a href="resume_main.html">Resume</a></li>
+                        <li><a href="portfolio_main.html">Portfolio</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact_page.html">Contact Page</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
+    <!--Main Content of the Page-->
+    <div class="main">
+        <div class="portfolio">
+            <h2><a href="portfolio_1.html">Project Highlight 1: CSV to Excel Script</a></h2>
+            <h2><a href="portfolio_2.html">Project Highlight 2: File Organizer</a></h2>
+            <h2><a href="portfolio_3.html">Project Highlight 3: RSA Algorithm</a></h2>
+            <h2><a href="portfolio_4.html">Project Highlight 4: Speak Like Yoda</a></h2>
+        </div>
+    </div>
 
-    <script type="text/javascript" src="../javascript/jquery.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            let $lmd = document.lastModified;
-            $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
-        });
-    </script>
+    <div class="footer">
+        <ul class="footer_list">
+            <li><li id="footer_button"><button>Random Joke</button></li></li>
+            <li><a href="sitemap.html">Site Map</a></li>
+            <li id="last_modified"></li>
+            <li>Last Modified By: T. Keith</li>
+        </ul>
+    </div>
+</div>
+<script  type="text/javascript" src="../javascript/script.js"></script>
+<script type="text/javascript" src="../javascript/jquery.js"></script>
+<script type="text/javascript">
+    $(function(){
+        let $lmd = document.lastModified;
+        $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
+    });
+</script>
 </body>
 </html>

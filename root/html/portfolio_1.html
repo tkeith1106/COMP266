@@ -46,6 +46,7 @@
         </div>
         <div class="code_container">
             <pre>
+                <!--below is purposely dedented for the code container-->
                 <code class="python" id="code_block">
 #!python3
 # -*- coding: utf-8 -*-
@@ -111,34 +112,36 @@ file.close()
 
     <div class="footer">
         <ul class="footer_list">
+            <li><li id="footer_button"><button>Random Joke</button></li></li>
+            <li><a href="sitemap.html">Site Map</a></li>
             <li id="last_modified"></li>
             <li>Last Modified By: T. Keith</li>
-            <li><a href="sitemap.html">Site Map</a></li>
         </ul>
     </div>
 
 </div>
-    <script type="text/javascript" src="../javascript/jquery.js"></script>
-    <script>hljs.highlightAll();</script>
-    <script type="text/javascript">
-        $(function(){
-            const themeArray = ["../javascript/highlight/styles/vs.min.css",
-                "../javascript/highlight/styles/androidstudio.min.css"];
-            $("#theme_change").click(function(){
-                if ($("#theme").attr('href') === themeArray[1]) {
-                    $("#theme").attr('href', "../javascript/highlight/styles/vs.min.css");
-                    $('.code_container').css( "background-color", '#fff');
-                } else if ($("#theme").attr('href') === themeArray[0]) {
-                    $("#theme").attr('href', "../javascript/highlight/styles/androidstudio.min.css");
-                    $('.code_container').css( "background-color", '#282b2e');
-                    }
-            });
+<script  type="text/javascript" src="../javascript/script.js"></script>
+<script type="text/javascript" src="../javascript/jquery.js"></script>
+<script>hljs.highlightAll();</script>
+<script type="text/javascript">
+    $(function(){
+        const themeArray = ["../javascript/highlight/styles/vs.min.css",
+            "../javascript/highlight/styles/androidstudio.min.css"];
+        $("#theme_change").click(function(){
+            if ($("#theme").attr('href') === themeArray[1]) {
+                $("#theme").attr('href', "../javascript/highlight/styles/vs.min.css");
+                $('.code_container').css( "background-color", '#fff');
+            } else if ($("#theme").attr('href') === themeArray[0]) {
+                $("#theme").attr('href', "../javascript/highlight/styles/androidstudio.min.css");
+                $('.code_container').css( "background-color", '#282b2e');
+                }
         });
+    });
 
-        $(function(){
-            let $lmd = document.lastModified;
-            $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
-        });
-    </script>
+    $(function(){
+        let $lmd = document.lastModified;
+        $('#last_modified').html("Last Modified: " + $lmd.split(" ")[0]);
+    });
+</script>
 </body>
 </html>
